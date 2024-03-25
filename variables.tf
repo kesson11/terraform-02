@@ -1,9 +1,9 @@
 ###cloud vars
-variable "token" {
-  type        = string
-  default     = "y0_AgAAAAAV9xL6AATuwQAAAAD_I_NQAABySsgxzwRNZ74iB9_O7brRpv0FjA"
-  description = "OAuth-token; https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token"
-}
+#variable "token" {
+#  type        = string
+#  default     = "y0_AgAAAAAV9xL6AATuwQAAAAD_I_NQAABySsgxzwRNZ74iB9_O7brRpv0FjA"
+#  description = "OAuth-token; https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token"
+#}
 
 variable "cloud_id" {
   type        = string
@@ -53,8 +53,13 @@ variable "dbhost" {
 
 ###ssh vars
 
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVzzVYjUFT5PNXSGcZ+/v5lH/gLcxSPB7D/Xx5TP+T9 kes@localhost.localdomain"
-  description = "ssh-keygen -t ed25519"
+
+variable "all_vms_ssh_root_key" {
+type        = map(string)
+default     =  {
+    serial-port-enable = 1
+    ssh-keys  = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVzzVYjUFT5PNXSGcZ+/v5lH/gLcxSPB7D/Xx5TP+T9 kes@localhost.localdomain"
+    }
+description = "all vms metadata"
+sensitive = true
 }

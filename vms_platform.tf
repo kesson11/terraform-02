@@ -10,6 +10,13 @@ variable "vm_db_platform" {
   description = "VM DB platform ID"
 }
 
+variable "vms_image" {
+  type        = string
+  default     = "ubuntu-2004-lts"
+  description = "VMs image"
+  
+}
+
 variable "vms_res" {
   type        = map(map(number))
   description = "All VMs resources"

@@ -1,5 +1,7 @@
 ###cloud vars
 
+#variable "yc_token" {}
+
 variable "cloud_id" {
   type        = string
   default     = "b1g76gao9plkjf86q95m"
